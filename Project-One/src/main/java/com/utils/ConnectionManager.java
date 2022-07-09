@@ -77,11 +77,12 @@ public class ConnectionManager {
 
             String password = String.valueOf(props.get("password"));
 
+
             System.out.println(connectionURL.toString());
 
             connection = DriverManager.getConnection(connectionURL, user, password);
 
-            
+
             System.out.println(connection.getClientInfo().toString() + "This is to confirm the connection was made");
 
             // The database URL is an address pointing to the database to be used
