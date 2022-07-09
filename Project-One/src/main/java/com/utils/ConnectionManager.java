@@ -72,18 +72,23 @@ public class ConnectionManager {
             // just for better looking code we assigned sb.toString
             // to connectionURL as opposed to
             String connectionURL = sb.toString();
+
             String user = String.valueOf(props.get("user"));
+
             String password = String.valueOf(props.get("password"));
-            connection = (Connection) DriverManager.getConnection(connectionURL, user, password);
 
             System.out.println(connectionURL.toString());
-            System.out.println(connection.toString());
+
+            connection = DriverManager.getConnection(connectionURL, user, password);
+
+            
+            System.out.println(connection.getClientInfo().toString() + "This is to confirm the connection was made");
 
             // The database URL is an address pointing to the database to be used
             // also known as the JDBC string
         }catch(IOException | SQLException e){
 
-            System.out.println(e.getMessage());
+            System.out.println("Error in the connection " + e.getMessage());
 
         }
 
