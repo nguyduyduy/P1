@@ -22,7 +22,7 @@ public class ConnectionManager {
 
     }
 
-    // private get method to initialize the connectionManager instance on line 7
+    // private get method to initialize the connectionManager instance on line 9
     private ConnectionManager getConnectionManager(){
         if(connectionManager == null){
             connectionManager = new ConnectionManager();
