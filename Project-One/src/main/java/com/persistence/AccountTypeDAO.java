@@ -4,7 +4,6 @@ import com.models.Account_Type;
 import com.utils.ConnectionManager;
 import com.utils.CustomCRUDInterface;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -73,11 +72,49 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
     @Override
     public Account_Type update(Account_Type account_type) {
+
+        try {
+
+            String sql = "UPDATE account_type SET type = ? WHERE acc_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            pstmt.setInt(1, account_type.getAcc_id());
+            pstmt.setString(1, account_type.getType());
+
+            pstmt.executeUpdate();
+
+            ResultSet rs = pstmt.getGeneratedKeys();
+
+            while (rs.next()){
+
+                account_type.setType(rs.getString("type"));
+
+            }
+
+            return account_type;
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
         return null;
     }
 
     @Override
     public boolean delete(Integer id) {
+
+        try {
+            String sql = "DELETE FROM account_type WHERE acc_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            pstmt.setInt(1, id);
+
+            return pstmt.execute();
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 }
