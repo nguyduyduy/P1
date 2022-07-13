@@ -12,12 +12,12 @@ public interface CustomCRUDInterface<T> {
     Integer create(T t);
 
     // returning type T and expecting a param of Integer id
-    T read (Integer id);
+    T read(Integer id);
 
     // returning type T and expecting a param of type T
-    T update (T t);
+    T update(T t);
 
     // returning a boolean and expecting a parameter of Integer id
-    boolean delete (Integer id);
+    boolean delete(Integer id);
 
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Reimbursement Homepage</title>
+  <h1>Manager Reimbursement Tickets</h1>
+  <style>
+
+table, th, td, td {
+  border:1px solid black;
+}
+
+</style>
+</head>
+<body>
+<form method="get" action="home-manager">
+  <input type="submit" value="Click to Return to Home">
+</form>
+<br>
+<br>
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>Ticket ID</th>
+    <th>Amount</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>123123</td>
+    <td>$342394820394809234</td>
+    <td>Lawsuit</td>
+    <td>Denied</td>
+  </tr>
+  <tr>
+    <td>4349834</td>
+    <td>$1000</td>
+    <td>PTO</td>
+    <td>Approved</td>
+  </tr>
+  <tr>
+    <td>2323</td>
+    <td>$2030.30</td>
+    <td>Travel</td>
+    <td>Pending</td>
+  </tr>
+
+</table>
+
+<form method="post" action="ticket-approved">
+  <input type="submit" value="Approve">
+</form>
+
+<form method="post" action="ticket-denied">
+  <input type="submit" value="Deny">
+</form>
+<br>
+<br>
+
+
+<div>
+
+  <h4> Need to submit a new ticket? </h4>
+  <form method="get" action="new-ticket">
+    <input type="submit" value="Click here!">
+  </form>
+
+
+</div>
+
+
+</body>
+</html>

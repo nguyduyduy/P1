@@ -1,9 +1,8 @@
 package com.utils;//import com.sun.jdi.connect.spi.Connection;
-import java.sql.Connection;
+
 import java.io.FileReader;
-import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionManager {
@@ -16,30 +15,27 @@ public class ConnectionManager {
     public static Connection connection;
 
 
-
     // this is a private constructor
-    private ConnectionManager(){
+    private ConnectionManager() {
 
     }
 
-    // private get method to initialize the connectionManager instance on line 9
-    private ConnectionManager getConnectionManager(){
-        if(connectionManager == null){
+    private ConnectionManager getConnectionManager() {
+        if (connectionManager == null) {
             connectionManager = new ConnectionManager();
         }
 
         return connectionManager;
     }
 
-
-    public static Connection getConnection(){
-        if (connection == null){
+    public static Connection getConnection() {
+        if (connection == null) {
             connection = connect();
         }
         return connection;
     }
 
-    private static Connection connect(){
+    private static Connection connect() {
 
         try {
 
@@ -47,7 +43,7 @@ public class ConnectionManager {
             Properties props = new Properties();
 
             // we are using the FileReader method to read the contents of our jdbc.properties file
-            FileReader fileReader = new FileReader("src/main/resources/jdbc.properties");
+            FileReader fileReader = new FileReader("/Users/nguyr/Documents/P1/Project-One" + "/src/main/resources/jdbc.properties");
 
             // by loading the contents of the file into the properties list
             // we can now access the values at the keys that we have set on the properties list
@@ -80,6 +76,8 @@ public class ConnectionManager {
 
             System.out.println(connectionURL.toString());
 
+            Class.forName("org.postgresql.Driver");
+
             connection = DriverManager.getConnection(connectionURL, user, password);
 
 
@@ -87,15 +85,16 @@ public class ConnectionManager {
 
             // The database URL is an address pointing to the database to be used
             // also known as the JDBC string
-        }catch(IOException | SQLException e){
+        } catch (Exception e) {
 
             System.out.println("Error in the connection " + e.getMessage());
 
         }
 
 
-
-
         return connection;
     }
+
+    // private get method to initialize the connectionManager instance on line 9
+
 }

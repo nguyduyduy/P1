@@ -1,5 +1,7 @@
 package com.models;
 
+import com.persistence.EmployeeInfoDAO;
+
 public class Employee_Info {
 
     private Integer employee_id;
@@ -8,7 +10,7 @@ public class Employee_Info {
 
     private String employee_last_name;
 
-    private Long phone_number;
+    private String phone_number;
 
     private String email;
 
@@ -17,7 +19,7 @@ public class Employee_Info {
     public Employee_Info() {
     }
 
-    public Employee_Info(Integer employee_id, String employee_first_name, String employee_last_name, Long phone_number, String email, String user_password) {
+    public Employee_Info(Integer employee_id, String employee_first_name, String employee_last_name, String phone_number, String email, String user_password) {
         this.employee_id = employee_id;
         this.employee_first_name = employee_first_name;
         this.employee_last_name = employee_last_name;
@@ -50,11 +52,11 @@ public class Employee_Info {
         this.employee_last_name = employee_last_name;
     }
 
-    public Long getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(Long phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Sign Up</title>
+</head>
+<body>
+
+<h2> Sign Up For A New Account </h2>
+<form method="post" action="created">
+
+    <h4><label for="employee-type">What type of user are you?</label></h4>
+    <select id="employee-type" name="employee-type">
+        <option value="manager">Manager</option>
+        <option value="employee">Employee</option>
+    </select>
+    <br>
+    <br>
+    <br>
+    <label> Enter Your First Name </label>
+    <br>
+    <input type="text" name="sign-up-input" required>
+    <br>
+    <label> Enter Your Last Name </label>
+    <br>
+    <input type="text" name="lastName-input" required>
+    <br>
+    <label> Enter Your Email </label>
+    <br>
+    <input type="text" name="email-input" required>
+    <br>
+    <label> Create Your Password </label>
+    <br>
+    <input type="password" pattern=".{4,20}" required title="4 to 20 characters">
+    <br>
+    <br>
+    <input type="submit" value="Submit Info!">
+    <input type="reset">
+
+</form>
+</body>
+</html>

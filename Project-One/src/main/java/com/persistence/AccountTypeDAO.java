@@ -13,7 +13,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
     Connection connection;
 
-    public AccountTypeDAO(){
+    public AccountTypeDAO() {
 
         connection = ConnectionManager.getConnection();
     }
@@ -39,7 +39,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
             return rs.getInt(1);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -49,7 +49,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
     @Override
     public Account_Type read(Integer id) {
 
-        try{
+        try {
             String sql = "SELECT * FROM account_type WHERE acc_id = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
                 accountType.setAcc_id(rs.getInt("acc_id"));
                 accountType.setType(rs.getString("type"));
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -85,7 +85,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
             ResultSet rs = pstmt.getGeneratedKeys();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 account_type.setType(rs.getString("type"));
 
@@ -93,7 +93,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
             return account_type;
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -112,7 +112,7 @@ public class AccountTypeDAO implements CustomCRUDInterface<Account_Type> {
 
             return pstmt.execute();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return false;

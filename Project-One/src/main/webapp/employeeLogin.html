@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Employee Login</title>
+
+</head>
+<body>
+<div>
+    <h2>User Employee Login</h2>
+    <br>
+    <br>
+    <h4> If you already have an account, Sign In!</h4>
+    <form method="get" action="home-employee">
+        <label> Enter Your Email Address </label>
+        <br>
+        <input type="text" name="email-sign-in" required>
+        <br>
+        <label> Enter Your Password </label>
+        <br>
+        <!--        name is referring to the servlet get-->
+        <input type="password" pattern=".{4,20}" required title="4 to 20 characters">
+        <br>
+        <br>
+        <input type="submit" value="Login">
+
+    </form>
+    <br>
+    <br>
+    <br>
+    <!--    action attribute is directing towards our servlet that we created-->
+    <h6> If You Don't Have An Account, Sign Up! </h6>
+    <form method="get" action="signUp">
+
+        <input type="submit" value="Sign Up!">
+
+
+    </form>
+
+</div>
+</body>
+</html>

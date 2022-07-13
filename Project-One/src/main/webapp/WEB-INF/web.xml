@@ -12,12 +12,140 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         version="2.5">
 
-    <!--    this listener is connected to our DependencyLoaderListener class-->
-    <!--    this class is responsible to "listening out" for the servlets we have in our projects-->
-
     <listener>
         <listener-class>com.servlets.DependencyLoaderListener</listener-class>
-    </listener>
 
+    </listener>
+    <!--Our logic will be in the servlet class; we are saying what should we do when a HTTP REQUEST is sent-->
+
+    <servlet>
+        <servlet-name>employeeLoginServlet</servlet-name>
+        <servlet-class>com.servlets.EmployeeLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>employeeLoginServlet</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signUpServlet</servlet-name>
+        <servlet-class>com.servlets.SignUpServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>signUpServlet</servlet-name>
+        <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>managerLoginServlet</servlet-name>
+        <servlet-class>com.servlets.ManagerLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>managerLoginServlet</servlet-name>
+        <url-pattern>/manager-login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>employeeHomePortalServlet</servlet-name>
+        <servlet-class>com.servlets.EmployeeHomePortalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>employeeHomePortalServlet</servlet-name>
+        <url-pattern>/home-employee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>accountCreatedServlet</servlet-name>
+        <servlet-class>com.servlets.AccountCreatedServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>accountCreatedServlet</servlet-name>
+        <url-pattern>/created</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ticketSuccess</servlet-name>
+        <servlet-class>com.servlets.TicketSuccessServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ticketSuccess</servlet-name>
+        <url-pattern>/ticket-success</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newTicketServlet</servlet-name>
+        <servlet-class>com.servlets.NewTicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newTicketServlet</servlet-name>
+        <url-pattern>/new-ticket</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewTicketServlet</servlet-name>
+        <servlet-class>com.servlets.ViewTicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>viewTicketServlet</servlet-name>
+        <url-pattern>/view-employee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logOutServlet</servlet-name>
+        <servlet-class>com.servlets.LogOutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>logOutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>managerHomePortal</servlet-name>
+        <servlet-class>com.servlets.ManagerHomePortalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>managerHomePortal</servlet-name>
+        <url-pattern>/home-manager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewManagerTicketServlet</servlet-name>
+        <servlet-class>com.servlets.ViewManagerTicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>viewManagerTicketServlet</servlet-name>
+        <url-pattern>/view-manager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ticketApprovedServlet</servlet-name>
+        <servlet-class>com.servlets.TicketApprovedServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ticketApprovedServlet</servlet-name>
+        <url-pattern>/ticket-approved</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ticketDeniedServlet</servlet-name>
+        <servlet-class>com.servlets.TicketDeniedServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ticketDeniedServlet</servlet-name>
+        <url-pattern>/ticket-denied</url-pattern>
+    </servlet-mapping>
 
 </web-app>

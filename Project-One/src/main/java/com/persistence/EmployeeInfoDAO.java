@@ -1,26 +1,24 @@
 package com.persistence;
 
-import com.models.Account_Type;
 import com.models.Employee_Info;
 import com.utils.ConnectionManager;
 import com.utils.CustomCRUDInterface;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.concurrent.ExecutionException;
 
 public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
 
     Connection connection;
 
-    public EmployeeInfoDAO(){
+    public EmployeeInfoDAO() {
 
         connection = ConnectionManager.getConnection();
 
     }
+
     @Override
     public Integer create(Employee_Info employee_info) {
 
@@ -31,7 +29,7 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
 
             pstmt.setString(1, employee_info.getEmployee_first_name());
             pstmt.setString(2, employee_info.getEmployee_last_name());
-            pstmt.setLong(3, employee_info.getPhone_number());
+            pstmt.setString(3, employee_info.getPhone_number());
             pstmt.setString(4, employee_info.getEmail());
             pstmt.setString(5, employee_info.getUser_password());
 
@@ -43,7 +41,7 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
 
             return rs.getInt(1);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -68,12 +66,14 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
                 employeeInfo.setEmployee_id(rs.getInt("employee_id"));
                 employeeInfo.setEmployee_first_name(rs.getString("employee_first_name"));
                 employeeInfo.setEmployee_last_name(rs.getString("employee_last_name"));
-                employeeInfo.setPhone_number(rs.getLong("phone_number"));
+                employeeInfo.setPhone_number(rs.getString("phone_number"));
                 employeeInfo.setEmail(rs.getString("email"));
                 employeeInfo.setUser_password(rs.getString("user_password"));
             }
 
-        } catch (Exception e){
+            return employeeInfo;
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -87,22 +87,29 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
             String sql = "UPDATE employee_info SET employee_first_name = ?, employee_last_name = ?, phone_number = ?, email = ?, user_password = ? WHERE acc_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            pstmt.setInt(1, );
-
-            pstmt.setInt(1, account_type.getAcc_id());
-            pstmt.setString(1, account_type.getType());
+            pstmt.setString(1, employee_info.getEmployee_first_name());
+            pstmt.setString(2, employee_info.getEmployee_last_name());
+            pstmt.setString(3, employee_info.getPhone_number());
+            pstmt.setString(4, employee_info.getEmail());
+            pstmt.setString(5, employee_info.getUser_password());
 
             pstmt.executeUpdate();
 
             ResultSet rs = pstmt.getGeneratedKeys();
 
-            while (rs.next()){
+            while (rs.next()) {
 
-                account_type.setType(rs.getString("type"));
+                employee_info.setEmployee_id(rs.getInt("employee_id"));
+                employee_info.setEmployee_first_name(rs.getString("employee_first_name"));
+                employee_info.setEmployee_last_name(rs.getString("employee_last_name"));
+                employee_info.setPhone_number(rs.getString("phone_number"));
+                employee_info.setUser_password(rs.getString("user_password"));
 
             }
 
-        } catch (Exception e){
+            return employee_info;
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -112,6 +119,22 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
 
     @Override
     public boolean delete(Integer id) {
+        try {
+            String sql = "DELETE FROM employee_info WHERE employee_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            pstmt.setInt(1, id);
+
+            return pstmt.execute();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         return false;
     }
+
+
 }
+
+
+
