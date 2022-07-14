@@ -148,4 +148,23 @@
         <url-pattern>/ticket-denied</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>errorServlet</servlet-name>
+        <servlet-class>com.servlets.ErrorServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>errorServlet</servlet-name>
+        <url-pattern>/error</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginSuccessServlet</servlet-name>
+        <servlet-class>com.servlets.LoginSuccessServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginSuccessServlet</servlet-name>
+        <url-pattern>/login-success</url-pattern>
+    </servlet-mapping>
 </web-app>

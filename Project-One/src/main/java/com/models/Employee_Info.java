@@ -28,6 +28,14 @@ public class Employee_Info {
         this.user_password = user_password;
     }
 
+    public Employee_Info(String employee_first_name, String employee_last_name, String phone_number, String email, String user_password) {
+        this.employee_first_name = employee_first_name;
+        this.employee_last_name = employee_last_name;
+        this.phone_number = phone_number;
+        this.email = email;
+        this.user_password = user_password;
+    }
+
     public Integer getEmployee_id() {
         return employee_id;
     }

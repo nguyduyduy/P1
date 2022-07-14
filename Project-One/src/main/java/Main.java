@@ -7,7 +7,9 @@ public class Main {
         // This creates the connection
         //ConnectionManager.getConnection();
 
-
+EmployeeInfoDAO employeeInfoDAO = new EmployeeInfoDAO();
+Employee_Info employeeInfo = employeeInfoDAO.read(1);
+        System.out.println(employeeInfo.getEmail());
 
 
     }
