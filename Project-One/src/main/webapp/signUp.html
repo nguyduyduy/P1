@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>User Sign Up</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+body {text-align: center;}
+form {display: inline-block;}
+</style>
 </head>
 <body>
 
-<h2> Sign Up For A New Account </h2>
-<form method="post" action="created">
+<div class="w3-display-top">
+    <h1 class="w3-jumbo w3-animate-top">Sign Up</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+</div>
+<form method="post" action="signUp">
 
     <h4><label for="employee-type">What type of user are you?</label></h4>
     <select id="employee-type" name="employee-type">
@@ -25,13 +36,17 @@
     <br>
     <input type="text" name="lastName-input" required>
     <br>
+    <label>Phone Number</label>
+    <br>
+    <input type="text" name="phone" required>
+    <br>
     <label> Enter Your Email </label>
     <br>
     <input type="text" name="email-input" required>
     <br>
     <label> Create Your Password </label>
     <br>
-    <input type="password" pattern=".{4,20}" required title="4 to 20 characters">
+    <input type="password" name="password-input" pattern=".{4,20}" required title="4 to 20 characters">
     <br>
     <br>
     <input type="submit" value="Submit Info!">

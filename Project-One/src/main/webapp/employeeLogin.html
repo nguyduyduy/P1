@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>User Employee Login</title>
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+body {text-align: center;}
+form {display: inline-block;}
+</style>
 </head>
 <body>
+<div class="w3-display-top">
+    <h2 class="w3-jumbo w3-animate-top">Employee Login</h2>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+</div>
 <div>
-    <h2>User Employee Login</h2>
+
     <br>
     <br>
     <h4> If you already have an account, Sign In!</h4>
-    <form method="get" action="home-employee">
+    <form method="get" name="employee-login" action="login-success">
         <label> Enter Your Email Address </label>
         <br>
-        <input type="text" name="email-sign-in" required>
+        <input type="text" id="email-sign-in" required>
         <br>
         <label> Enter Your Password </label>
         <br>
         <!--        name is referring to the servlet get-->
-        <input type="password" pattern=".{4,20}" required title="4 to 20 characters">
+        <input type="password" id="password-sign-in" pattern=".{4,20}" required title="4 to 20 characters">
         <br>
         <br>
-        <input type="submit" value="Login">
+        <input type="submit" id="login-button" value="Login">
 
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -32,7 +50,7 @@
     <h6> If You Don't Have An Account, Sign Up! </h6>
     <form method="get" action="signUp">
 
-        <input type="submit" value="Sign Up!">
+        <input  type="submit" value="Sign Up!">
 
 
     </form>

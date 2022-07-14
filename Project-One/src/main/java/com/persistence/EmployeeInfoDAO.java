@@ -2,6 +2,7 @@ package com.persistence;
 
 import com.models.Employee_Info;
 import com.utils.ConnectionManager;
+import com.utils.CurrentUser;
 import com.utils.CustomCRUDInterface;
 
 import java.sql.Connection;
@@ -18,6 +19,7 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
         connection = ConnectionManager.getConnection();
 
     }
+
 
     @Override
     public Integer create(Employee_Info employee_info) {
@@ -132,6 +134,34 @@ public class EmployeeInfoDAO implements CustomCRUDInterface<Employee_Info> {
         }
         return false;
     }
+
+    public CurrentUser loginUser (String email, String password){
+        try {
+            String sql = "SELECT * FROM employee_info WHERE email = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+                // 1 indicates parameter of question mark, email is what it's taking in
+            pstmt.setString(1, email);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            if(rs.next() && rs.getString("user_password").equals(password)){
+                return new CurrentUser(rs.getInt("employee_id"),
+                        rs.getString("employee_first_name"),
+                        rs.getString("employee_last_name"),
+                        rs.getString("phone_number"),
+                        rs.getString("email"),
+                        rs.getString("user_password"));
+            }
+
+
+        }catch (Exception e){
+            System.out.println("This is the EmployeeInfoDAO " + e.getMessage());
+        }
+        return CurrentUser.currentUser;
+    }
+
+
+
 
 
 }

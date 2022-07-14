@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Manager Portal</title>
+    <title>Approve or Deny</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <style>
@@ -15,47 +15,39 @@ form {display: inline-block;}
 <body>
 
 <div class="w3-display-top">
-    <h2 class="w3-jumbo w3-animate-top">Manager Home Portal</h2>
+    <h1 class="w3-jumbo w3-animate-top">Tickets</h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<div>
+
+<form method="post" action="ticket-approved">
+    <label>Enter ID number to be approved</label>
+    <br>
+    <input type="text" name="id-input" required>
+    <br>
+    <br>
+    <label> Status </label>
+    <br>
+
+
+    <select name="status">
+        <option value="Approve">Approve</option>
+        <option value="Deny">Deny</option>
+    </select>
 <br>
     <br>
     <br>
-    <br>
-    <form method="get" action="view-manager">
-        <input type="submit" value="View Tickets ">
-    </form>
+    <input type="submit" value="Submit">
+</form>
 
 
 
-
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<div>
-
-    <form method="get" action="logout">
-        <input type="submit" value="Logout">
-    </form>
-
-</div>
 </body>
 </html>

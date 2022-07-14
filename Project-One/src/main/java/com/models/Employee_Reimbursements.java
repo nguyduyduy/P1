@@ -9,18 +9,28 @@ public class Employee_Reimbursements {
 
     private Double reimburse_amount;
 
-    private Date submission_date;
+    private String description;
 
-    private Timestamp submission_time;
+    private String status;
 
     public Employee_Reimbursements() {
     }
 
-    public Employee_Reimbursements(Integer reimburse_id, Double reimburse_amount, Date submission_date, Timestamp submission_time) {
+    public Employee_Reimbursements(Integer reimburse_id, Double reimburse_amount, String description, String status) {
         this.reimburse_id = reimburse_id;
         this.reimburse_amount = reimburse_amount;
-        this.submission_date = submission_date;
-        this.submission_time = submission_time;
+        this.description = description;
+        this.status = status;
+    }
+
+    public Employee_Reimbursements(Integer reimburse_id, String status) {
+        this.reimburse_id = reimburse_id;
+        this.status = status;
+    }
+
+    public Employee_Reimbursements(Double reimburse_amount, String description) {
+        this.reimburse_amount = reimburse_amount;
+        this.description = description;
     }
 
     public Integer getReimburse_id() {
@@ -39,19 +49,19 @@ public class Employee_Reimbursements {
         this.reimburse_amount = reimburse_amount;
     }
 
-    public Date getSubmission_date() {
-        return submission_date;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSubmission_date(Date submission_date) {
-        this.submission_date = submission_date;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Timestamp getSubmission_time() {
-        return submission_time;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSubmission_time(Timestamp submission_time) {
-        this.submission_time = submission_time;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
