@@ -20,11 +20,11 @@ public class LoginSuccessServlet extends HttpServlet {
 
         CurrentUser.currentUser = employeeInfoDAO.loginUser(email, password);
 
-        if (CurrentUser.currentUser == null){
+//        if (CurrentUser.currentUser == null){
             req.getRequestDispatcher("loginSuccess.html").forward(req,resp);
-        } else {
-            req.getRequestDispatcher("error.html").forward(req, resp);
-        }
+//        } else {
+//            req.getRequestDispatcher("error.html").forward(req, resp);
+//        }
     }
 
     @Override
